@@ -2,15 +2,17 @@ Summary:	grandr - GTK+ application to configure RandR
 Summary(pl.UTF-8):	grandr - aplikacja GTK+ do konfiguracji RandR
 Name:		xorg-app-grandr
 Version:	0.1
-Release:	2
+Release:	3
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/app/grandr-%{version}.tar.bz2
 # Source0-md5:	e265c8e89aab39c55cb24ad8230c3933
 Patch0:		%{name}-gconf.patch
 Patch1:		%{name}-fix-crash-on-inactive-display.patch
+Patch2:		gthread.patch
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	GConf2-devel >= 2.0
+BuildRequires:	glib2-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 1:2.0.0
@@ -30,6 +32,7 @@ grandr - aplikacja GTK+ do konfiguracji RandR.
 %setup -q -n grandr-%{version}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__aclocal}
